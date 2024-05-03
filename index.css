@@ -5,8 +5,12 @@
 .mid-section{
     display: flex;
     gap: 15px;
+    font-weight: 400;
+    font-size: 16px;
+    justify-content: center;
+    align-items: center;
 }
-.mid-section >p{
+.mid-section > p{
     color: #4d4d4d;
     font-size: 16px;
 }
@@ -15,8 +19,85 @@
     justify-content: space-evenly;
     padding-top: 90px;
 }
-.hero-section >div > h1{
+.hero-section > div > h1{
     color: #4d4d4d;
     font-weight: bolder;
     font-size: 45px;
+}
+.dot {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #4caf4f;
+    gap: 8px;
+    top: 6px;
+    left: 6px;
+}
+
+.our_clients > div > h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.our_clients > div > p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.clients-logos{
+    padding-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 15%;
+    gap: 20px;
+}
+.clients-logos img{
+    width: 3%;
+    max-width: 100%;
+    gap: 8px;
+}
+.community{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+.community > div > h1{
+    color: #4D4D4D;
+    font-weight: bolder;
+    font-size: 36px;
+}
+.community > div > span{
+    color: #4D4D4D;
+    font-weight: bold;
+    font-size: 36px;
+    align-content: center;
+}
+.members{
+    display: flex;
+    justify-content: space-evenly;
+    position: relative;
+    gap: 25px;
+}
+.member{
+    position: relative;
+    right: -30px;
+}
+.member1{
+    position: relative;
+    right: -30px;
+    top: -7px;
+    color: #103E13;
+ }
+.member2{
+    position: relative;
+    right: -30px;
+    top: -7px;
+    color: #103E13;
+ }
+.positioned {
+        position: static;
+        color: #E8F5E9;
 }
