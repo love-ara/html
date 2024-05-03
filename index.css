@@ -101,3 +101,8 @@
         position: static;
         color: #E8F5E9;
 }
+.body{
+    display: flex;
+    margin-top: 40px;
+    justify-content: space-evenly;
+}
