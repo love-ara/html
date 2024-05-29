@@ -1,0 +1,18 @@
+.nav{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 45px;
+    /*margin-top: 10px;*/
+}
+.midSection{
+    display: flex;
+    gap: 25px;
+    font-weight: 500;
+    font-size: 14px;
+    justify-content: center;
+    align-items: center;
+}
+.midSection > p{
+    color: #4d4d4d;
+    font-size: 16px;
+}
