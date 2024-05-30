@@ -84,7 +84,7 @@ export const Styles = {
     },
     totalScoreContainer: {
         textAlign: 'center',
-        marginTop: '20px',
+         marginTop: '20px',
     },
     footer: {
         textAlign: 'center',

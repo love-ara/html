@@ -1,0 +1,13 @@
+.Li {
+    background-color: green;
+}
+
+.carousel-indicators li:first-child {
+    background-color: lightgreen;
+}
+
+.li {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+}

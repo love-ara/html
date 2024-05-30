@@ -1,11 +1,6 @@
 import style from "./index.module.css"
-import client0 from "../../../asset/client0.png"
-import client1 from "../../../asset/client1.png"
-import client2 from "../../../asset/client2.png"
-import client3 from "../../../asset/client3.png"
-import client4 from "../../../asset/client4.png"
-import client5 from "../../../asset/client5.png"
-import client6 from "../../../asset/client6.png"
+import {members} from "./data";
+import {membersTwo} from "./dataTwo";
 
 const Clients = () =>{
 
@@ -14,17 +9,33 @@ const Clients = () =>{
             <div className={style.client}>
                 <h4>Our Clients</h4>
                 <p>We have been working with some Fortune 500+ clients</p>
-                <div style={{display:"flex", justifyContent: "space-evenly", width: "100%"}}>
-                    <img src={client0} alt=""/>
-                    <img src={client1} alt=""/>
-                    <img src={client2} alt=""/>
-                    <img src={client3} alt=""/>
-                    <img src={client4} alt=""/>
-                    <img src={client5} alt=""/>
-                    <img src={client6} alt=""/>
+                <div style={{display: "flex", justifyContent: "space-evenly", width: "100%"}}>
+                        {membersTwo.map((value, index) =>
+                            <div key={index} style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
+                                <img src={value.image} alt={""}/>
+                            </div>
+                        )}
                 </div>
+                <div className={style.member}>
+                    <p className={style.p}>Manage your entire community in a single system</p>
+                    <h6>Who is Nexcent suitable for?</h6>
+                </div>
+                <div className={style.member2}>
+                    {
+                        members.map((value, index) =>
+                            <div key={index} style={{display: "flex",flexDirection: "column", alignItems: "center"}}>
+                            <img src={value.image} alt={""}/>
+                                <h2>{value.title}</h2>
+                                <p style={{width: "50%", textAlign: "center"}}>
+                                    {value.text}
+                                </p>
+                        </div>
+                    )}
+            </div>
             </div>
         </>
-    )
-}
+
+)}
+
+
 export default Clients;

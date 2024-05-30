@@ -1,0 +1,14 @@
+.section3{
+    display: flex;
+    justify-content: space-evenly;
+    gap: 40px;
+    padding: 10%;
+    background: #f5f7fa;
+    width: 100%
+}
+
+.new{
+    display: grid;
+    gap: 1px;
+    grid-template-columns: repeat(4, 1fr);
+}

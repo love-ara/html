@@ -1,5 +1,6 @@
 import Illustration from "../../../asset/Illustration.png"
 import style from "./index.module.css"
+import CarouselComponent from "../../../Component/carousel";
 
 const Hero = () =>{
     return(
@@ -15,11 +16,8 @@ const Hero = () =>{
                 </div>
                 <img src={Illustration} alt="illustration"/>
             </div>
-
-            {/*<div className="dot">*/}
-            {/*    <img src="asset/Ellipse%205.png" alt="ellipse"/>*/}
-            {/*    <img src="asset/Ellipse%206.png" alt="ellipse"/>*/}
-            {/*    <img src="asset/Ellipse%207.png" alt="ellipse"/>*/}
+            {/*<div style={{display: "flex", justifyContent: "center", color: "#4caf4f"}}>*/}
+            {/*    <CarouselComponent/>*/}
             {/*</div>*/}
         </>
     )

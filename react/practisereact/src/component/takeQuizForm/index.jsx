@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-// import { useNavigate } from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 import axios from "axios";
 import { Formik } from "formik";
 import * as Yup from "yup";
@@ -16,14 +16,15 @@ function TakeQuiz() {
     const [questions, setQuestions] = useState([]);
     const [currentPage, setCurrentPage] = useState(0);
     const [quizPin, setQuizPin] = useState("");
-    // const [username, setUsername] = useState("");
+    const [username, setUsername] = useState("");
     const [step, setStep] = useState(1);
     const [userAnswers, setUserAnswers] = useState({});
     const [totalScore, setTotalScore] = useState(0);
     const [answerTimestamps, setAnswerTimestamps] = useState({});
     const [quizTitle, setQuizTitle] = useState("");
+    const [showResult, setShowResult] = useState(false);
     const questionsPerPage = 1;
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
 
     const quizPinValidationSchema = Yup.object().shape({
         quizPin: Yup.string().required('Quiz pin is required')
@@ -116,7 +117,6 @@ function TakeQuiz() {
     };
 
     useEffect(() => {
-        // Record the timestamp when the question is first displayed
         if (step === 3 && questions.length > 0) {
             const currentQuestionId = questions[currentPage].questionId;
             setAnswerTimestamps((prevTimestamps) => ({
@@ -135,7 +135,7 @@ function TakeQuiz() {
             [questionId]: optionContent,
         }));
 
-        const timeTaken = (endTime - startTime) / 1000; // Time taken in seconds
+        const timeTaken = (endTime - startTime) / 1000;
         const question = questions.find(q => q.questionId === questionId);
         const correctAnswer = question.answer;
 
@@ -149,7 +149,7 @@ function TakeQuiz() {
 
         toast.success(`Question answered! Your score for this question: ${(questionScore * 100).toFixed(2)}%`, {
             position: 'top-right',
-            autoClose: 3000,
+            autoClose: question.timeLimit,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
@@ -157,11 +157,10 @@ function TakeQuiz() {
             progress: undefined,
         });
 
-        // Show the next question automatically
         if (currentPage < questions.length - 1) {
-            setTimeout(handleNextPage, 1000); // Wait for 1 second before moving to the next question
+            setTimeout(handleNextPage, 1000);
         } else {
-            setTimeout(handleSubmitQuiz, 1000); // If it's the last question, submit the quiz
+            setTimeout(handleSubmitQuiz, 1000);
         }
     };
 
@@ -169,6 +168,7 @@ function TakeQuiz() {
         setIsLoading(true);
         try {
             const score = Math.round((totalScore / questions.length) * 100);
+            navigate('/final-score', { state: { totalScore: score } });
 
             toast.success(`Quiz submitted successfully! Your total score: ${score}%`, {
                 position: 'top-right',
@@ -200,7 +200,7 @@ function TakeQuiz() {
 
     return (
         <div style={Styles.container}>
-            {!currentPage === totalPages &&(
+            {currentPage === startIndex &&(
                 <SideImage/>
 
             )
@@ -298,12 +298,12 @@ function TakeQuiz() {
 
                 </div>
             </div>
-            {currentPage === totalPages - 1 && (
-                <div style={Styles.totalScoreContainer}>
-                    <h2>Total Score</h2>
-                    <p>{(totalScore / questions.length * 100).toFixed(2)}%</p>
-                </div>
-            )}
+            {/*{currentPage === totalPages - 1 && (*/}
+            {/*    <div style={Styles.totalScoreContainer}>*/}
+            {/*        <h2>Total Score</h2>*/}
+            {/*        <p>{(totalScore / questions.length * 100).toFixed(2)}%</p>*/}
+            {/*    </div>*/}
+            {/*)}*/}
             <ToastContainer/>
         </div>
     );

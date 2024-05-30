@@ -4,6 +4,7 @@ import style from "./index.module.css"
 const Navbar = () => {
     return(
         <>
+
             <div className={style.nav}>
                 <div style={{display: "flex", alignItems: "center"}}>
                     <img src={logo} alt="logo"/>
@@ -21,7 +22,7 @@ const Navbar = () => {
                     <p>FAQ</p>
                 </div>
 
-                <div style={{display: "flex", justifyContent: "center", alignContent: "center", gap: "15px"}}>
+                <div style={{display: "flex", justifyContent: "center", alignItems: "center", gap: "15px"}}>
                     <button style={{
                         color: "#4caf44",
                         background: "none",
@@ -36,9 +37,7 @@ const Navbar = () => {
                         background: "#4caf4f",
                         color: "#fff",
                         border: "none",
-                    }}>
-                        SignUp
-
+                    }}>SignUp
                     </button>
                 </div>
             </div>

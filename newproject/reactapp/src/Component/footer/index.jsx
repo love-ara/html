@@ -18,8 +18,8 @@ const Footer = () => {
             <div className={style.footer}>
                 <div>
                     <img src={LogoN} alt="logo"/>
-                    <p><YearCopyright /><span style={{display: "block"}}>All rights reserved</span>
-                    </p>
+                    <YearCopyright/>
+                    <p style={{display: "block"}}>All rights reserved</p>
                     <div>
                         <img src={web} alt=""/>
                         <img src={inst} alt=""/>

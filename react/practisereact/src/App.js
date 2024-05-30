@@ -5,6 +5,7 @@ import LoginForm from "./component/loginForm";
 import SignupForm from "./component/signupForm";
 import QuizForm from "./component/quizForm";
 import TakeQuizForm from "./component/takeQuizForm";
+import FinalScore from "./component/FinalScore";
 function App() {
   return (
         <>
@@ -16,6 +17,7 @@ function App() {
                       <Route element={<SignupForm/>} path={"/signup"}/>
                       <Route element={<QuizForm/>} path={"/display"}/>
                       <Route element={<TakeQuizForm/>} path={"/quiz"}/>
+                      <Route path="/final-score" element={<FinalScore/>} />
                   </Route>
               </Routes>
           </BrowserRouter>
