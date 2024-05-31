@@ -13,8 +13,8 @@ const Section6 = () => {
                     padding: "29px",
                     color: "#595959"
                 }}>
-                    <h2 style={{fontSize: "58px"}}>Caring is the new marketing<br/></h2>
-                    <p style={{marginTop: "-25px", fontSize: "26px"}}>The Nexcent blog is the best place to read about
+                    <h2 style={{fontSize: "58px", textAlign: "center"}}>Caring is the new marketing<br/></h2>
+                    <p style={{marginTop: "-25px", fontSize: "26px", textAlign: "center"}}>The Nexcent blog is the best place to read about
                         the latest membership insights, <br/>
                         trends and more. See who's joining the community, read about how our community<br/>
                         are increasing their membership income and lot's more.</p>
@@ -35,21 +35,22 @@ const Section6 = () => {
                                 <div style={{
                                     background: "#f5f7fa",
                                     color: "#868686",
-                                    width: "450px",
+                                    width: "420px",
+                                    height: "170px",
                                     borderRadius: "10px",
                                     padding: "15px 15px",
-                                    marginTop: "-60px",
-                                    marginLeft: "-29px",
+                                    marginTop: "-100px",
+                                    marginLeft: "10px",
                                     // margin: "10px 12px 10px 12px",
                                     position: "relative"
                                 }}>
 
-                                    <div style={{display: "flex", alignContent: "center"}}>
-                                        <h1>{value.text}</h1>
+                                    <div style={{display: "flex", justifyContent: "center"}}>
+                                        <h1 style={{textAlign: "center", fontSize: "20px", fontWeight: "600", fontFamily: "inter, sans-serif"}}>{value.text}</h1>
                                     </div>
 
                                     <div style={{display: "flex", justifyContent: "center"}}>
-                                        <h4 style={{alignItems: "center", color: "#4caf4f"}}>{value.link} &#8594;</h4>
+                                        <h4 style={{textAlign: "center", fontSize: "20px", fontWeight: "600", fontFamily: "inter, sans-serif", color: "#4caf4f"}}>{value.link} &#8594;</h4>
                                     </div>
                                 </div>
 

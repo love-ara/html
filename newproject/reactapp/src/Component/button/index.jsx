@@ -5,7 +5,7 @@ const Button = () =>{
         <>
             <div style={{width: "100%", display: "flex", justifyContent: "center"}}>
                 <button className={style.button}>Get a
-                    demo &#8594;</button>
+                    Demo &#8594;</button>
             </div>
         </>
     )

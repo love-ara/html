@@ -8,9 +8,9 @@ const Section4= ()=>{
             <div className={style.section4}>
                 <img src={Panel} alt={"landing page"}/>
                 <div>
-                    <h1>How to design your site footer like we did <span
-                        style={{color: "#4caf4f", display: "block"}}> like we did </span></h1>
-                    <p>One event calendar shared across National, Regional and Club events to simplify your event experience.<br/>
+                    <h1 style={{justifyContent: "center", alignItems: "center", color: "#4d4d4d"}}>How to design your site footer like we did <span
+                        style={{display: "block"}}> like we did </span></h1>
+                    <p style={{color: "#4d4d4d"}}>One event calendar shared across National, Regional and Club events to simplify your event experience.<br/>
                         Allowing you to create waiting lists, share data capture,
                         issue credential for course completion, apply<br/>
                         smart purchasing rules and much more.</p>

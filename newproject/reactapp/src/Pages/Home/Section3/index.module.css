@@ -4,7 +4,8 @@
     gap: 40px;
     padding: 10%;
     background: #f5f7fa;
-    width: 100%
+    width: 100%;
+    font-family: Inter, sans-serif;
 }
 
 .new{

@@ -11,12 +11,12 @@ export const members = [
     },
     {
         image: image19,
-        text: "What are your Safeguarding responsibilities and how can you manage them",
+        text: "What are your safeguarding responsibilities and how can you manage them?",
         link: "Readmore "
     },
     {
         image: image20,
-        text: "Revamping the Membership modelwith Triathlon Australia",
+        text: "Revamping the Membership model with Triathlon Australia",
         link: "Readmore"
     }
 
