@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {useLocation, useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Formik } from "formik";
 import * as Yup from "yup";
@@ -22,7 +22,6 @@ function TakeQuiz() {
     const [totalScore, setTotalScore] = useState(0);
     const [answerTimestamps, setAnswerTimestamps] = useState({});
     const [quizTitle, setQuizTitle] = useState("");
-    const [showResult, setShowResult] = useState(false);
     const questionsPerPage = 1;
     const navigate = useNavigate();
 
@@ -38,9 +37,6 @@ function TakeQuiz() {
         setIsLoading(true);
         try {
             const response = await axios.post(`http://localhost:9091/start/submit`, values);
-
-            console.log(response);
-
             setQuizPin(values.quizPin);
             setStep(2);
             toast.success("Quiz pin accepted!", {
@@ -75,8 +71,6 @@ function TakeQuiz() {
                 quizPin: quizPin,
                 username: values.username,
             });
-            console.log(response);
-
             const receivedQuestions = response.data.data.getQuestionResponse || [];
             const receivedQuizTitle = response.data.data.quizTitle || "";
             setQuestions(receivedQuestions);
@@ -149,7 +143,7 @@ function TakeQuiz() {
 
         toast.success(`Question answered! Your score for this question: ${(questionScore * 100).toFixed(2)}%`, {
             position: 'top-right',
-            autoClose: question.timeLimit,
+            autoClose: 3000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
@@ -200,23 +194,18 @@ function TakeQuiz() {
 
     return (
         <div style={Styles.container}>
-            {currentPage === startIndex &&(
-                <SideImage/>
-
-            )
-
-            }
+            {step !== 3 && <SideImage />} {/* Show side image on non-question pages */}
             <div style={Styles.formContainer}>
                 {step === 1 && (
                     <div>
                         <h1 style={Styles.header}>Enter Quiz Pin</h1>
                         <Formik
-                            initialValues={{quizPin: ''}}
+                            initialValues={{ quizPin: '' }}
                             validationSchema={quizPinValidationSchema}
                             onSubmit={handleQuizPinSubmit}
                         >
-                            {({isSubmitting}) => (
-                                <QuizPin submitting={isSubmitting} loading={isLoading}/>
+                            {({ isSubmitting }) => (
+                                <QuizPin submitting={isSubmitting} loading={isLoading} />
                             )}
                         </Formik>
                     </div>
@@ -225,20 +214,19 @@ function TakeQuiz() {
                     <div>
                         <h1 style={Styles.header}>Enter Username</h1>
                         <Formik
-                            initialValues={{username: ''}}
+                            initialValues={{ username: '' }}
                             validationSchema={usernameValidationSchema}
                             onSubmit={handleUsernameSubmit}
                         >
-                            {({isSubmitting}) => (
-                                <Username submitting={isSubmitting} loading={isLoading}/>
+                            {({ isSubmitting }) => (
+                                <Username submitting={isSubmitting} loading={isLoading} />
                             )}
                         </Formik>
                     </div>
                 )}
                 {step === 3 && questions.length > 0 && (
                     <div>
-                        <h2 style={Styles.header}>{quizTitle}</h2> {/* Display the quiz title */}
-                        {/*<h2 style={Styles.header}>Quiz Questions</h2>*/}
+                        <h2 style={Styles.header}>{quizTitle}</h2>
                         <ul style={Styles.questionsList}>
                             {currentQuestions.map((question, index) => (
                                 <li key={index} style={Styles.questionItem}>
@@ -259,8 +247,8 @@ function TakeQuiz() {
                                             </li>
                                         ))}
                                     </ol>
-                                    <p>Question Type : {question.questionType}</p>
-                                    {/*<p>Time Limit : {question.timeLimit}</p>*/}
+                                    <p>Question Type: {question.questionType}</p>
+                                    <p>Time Limit: {question.timeLimit}</p>
                                 </li>
                             ))}
                         </ul>
@@ -293,18 +281,8 @@ function TakeQuiz() {
                         </div>
                     </div>
                 )}
-                <div>
-                {/*    I want to create a page for total score */}
-
-                </div>
             </div>
-            {/*{currentPage === totalPages - 1 && (*/}
-            {/*    <div style={Styles.totalScoreContainer}>*/}
-            {/*        <h2>Total Score</h2>*/}
-            {/*        <p>{(totalScore / questions.length * 100).toFixed(2)}%</p>*/}
-            {/*    </div>*/}
-            {/*)}*/}
-            <ToastContainer/>
+            <ToastContainer />
         </div>
     );
 }
