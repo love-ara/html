@@ -9,7 +9,7 @@ import './../filledButton/index.module.css';
 import { QuizPin } from "../quizPin/quizPin";
 import { Username } from "../username/username";
 import { SideImage } from "./sideImage";
-import { Styles } from "../styles/Styles";
+import style from "./index.module.css"
 
 function TakeQuiz() {
     const [isLoading, setIsLoading] = useState(false);
@@ -193,12 +193,12 @@ function TakeQuiz() {
     const totalPages = Math.ceil(questions.length / questionsPerPage);
 
     return (
-        <div style={Styles.container}>
-            {step !== 3 && <SideImage />} {/* Show side image on non-question pages */}
-            <div style={Styles.formContainer}>
+        <div className={style.container}>
+            {step !== 3 && <SideImage />}
+            <div className={style.formContainer}>
                 {step === 1 && (
                     <div>
-                        <h1 style={Styles.header}>Enter Quiz Pin</h1>
+                        <h1 className={style.header}>Enter Quiz Pin</h1>
                         <Formik
                             initialValues={{ quizPin: '' }}
                             validationSchema={quizPinValidationSchema}
@@ -212,7 +212,7 @@ function TakeQuiz() {
                 )}
                 {step === 2 && (
                     <div>
-                        <h1 style={Styles.header}>Enter Username</h1>
+                        <h1 className={style.header}>Enter Username</h1>
                         <Formik
                             initialValues={{ username: '' }}
                             validationSchema={usernameValidationSchema}
@@ -226,37 +226,55 @@ function TakeQuiz() {
                 )}
                 {step === 3 && questions.length > 0 && (
                     <div>
-                        <h2 style={Styles.header}>{quizTitle}</h2>
-                        <ul style={Styles.questionsList}>
+                        <h2 className={style.header}>{quizTitle}</h2>
+                        <ul className={style.questionsList}>
                             {currentQuestions.map((question, index) => (
-                                <li key={index} style={Styles.questionItem}>
-                                    <p>{question.currentQuestionNumber}. {question.questionContent}</p>
-                                    <ol>
+                                <li key={index} className={style.questionItem}>
+                                    <p style={{
+                                        background: "white",
+                                        borderRadius: "20px",
+                                        border: "solid none",
+                                        padding: "50px 50px 50px 10px",
+                                        fontSize: "35px"
+                                    }}>
+                                        {question.currentQuestionNumber}.&nbsp; &#160;{question.questionContent}
+                                    </p>
+                                    <ol >
                                         {question.option.map((option, optionIndex) => (
                                             <li key={optionIndex}>
-                                                <label>
+                                                <label  style={{
+                                                    padding: "10px 10px 10px 10px",
+                                                    border: "none", borderRadius: "10px",
+                                                    background: "gold",
+                                                    marginBottom: "-100px",
+                                                    marginTop: "-100px",
+                                                }}>
                                                     <input
                                                         type="radio"
                                                         name={`question-${index}`}
                                                         value={option.optionContent}
                                                         checked={userAnswers[question.questionId] === option.optionContent}
                                                         onChange={() => handleAnswerChange(question.questionId, option.optionContent)}
+
                                                     />
                                                     {option.optionContent}
                                                 </label>
                                             </li>
                                         ))}
                                     </ol>
-                                    <p>Question Type: {question.questionType}</p>
-                                    <p>Time Limit: {question.timeLimit}</p>
+                                    <div>
+                                        <p>Question Type:&#160;{question.questionType}</p>
+                                        <p>Time Limit: {question.timeLimit}</p>
+                                    </div>
+
                                 </li>
                             ))}
                         </ul>
-                        <div style={Styles.pagination}>
+                        <div className={style.pagination}>
                             {currentPage > 0 && (
                                 <button
                                     onClick={handlePreviousPage}
-                                    style={Styles.paginationButton}
+                                    className={style.paginationButton}
                                 >
                                     Previous
                                 </button>
@@ -264,7 +282,7 @@ function TakeQuiz() {
                             {currentPage === totalPages - 1 && (
                                 <button
                                     onClick={handleSubmitQuiz}
-                                    style={Styles.paginationButton}
+                                    className={style.paginationButton}
                                 >
                                     Submit Quiz
                                 </button>
@@ -272,7 +290,7 @@ function TakeQuiz() {
                             {currentPage < totalPages - 1 && (
                                 <button
                                     onClick={handleNextPage}
-                                    style={Styles.paginationButton}
+                                    className={style.paginationButton}
                                     disabled={startIndex + questionsPerPage >= questions.length}
                                 >
                                     Next

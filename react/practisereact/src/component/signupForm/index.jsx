@@ -8,13 +8,14 @@ import { Icon } from '@iconify/react';
 import loadingLoop from '@iconify/icons-line-md/loading-loop';
 import 'react-toastify/dist/ReactToastify.css';
 import { Styles } from "../styles/Styles";
+import webPageTwo from "../../img/webPageTwo.png"
 
 
 function SignupForm() {
-    const [formData, setFormData] = useState({
-        username: "",
-        password: "",
-    });
+    // const [, setFormData] = useState({
+    //     username: "",
+    //     password: "",
+    // });
 
     const [isLoading, setIsLoading] = useState(false);
     const navigate = useNavigate();
@@ -64,7 +65,7 @@ function SignupForm() {
     return (
         <div style={Styles.container}>
             <div style={Styles.imageContainer}>
-                <img src="/img/webpix%20(1).png" alt="Sign up image" style={Styles.image} />
+                <img src={webPageTwo} alt="Sign up" style={Styles.image} />
             </div>
             <div style={Styles.formContainer}>
                 <div>

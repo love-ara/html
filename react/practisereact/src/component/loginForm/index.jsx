@@ -7,6 +7,8 @@ import { toast, ToastContainer } from "react-toastify";
 import { Icon } from '@iconify/react';
 import loadingLoop from '@iconify/icons-line-md/loading-loop';
 import 'react-toastify/dist/ReactToastify.css';
+import webPix from "../../img/webPix.png"
+import style from  "./index.module.css"
 
 function LoginForm() {
     const [formData, setFormData] = useState({
@@ -71,9 +73,9 @@ function LoginForm() {
     };
 
     return (
-        <div style={styles.container}>
+        <div className={style.container}>
             <div style={{ flex: '1', backgroundColor: '#f0f0f0', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <img src="/img/webpix.png" alt="Your Image" style={{ maxWidth: '50%', maxHeight: '80%', borderRadius: '8px' }} />
+                <img src={webPix} alt="Your img" style={{ maxWidth: '50%', maxHeight: '80%', borderRadius: '8px' }} />
             </div>
             <div style={{ flex: '1', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <div>
@@ -137,7 +139,7 @@ function LoginForm() {
                                 <div>
                                     <button
                                         type="submit"
-                                        style={styles.button}
+                                        className={style.button}
                                         disabled={isLoading}
                                     >
                                         {isLoading ? <Icon icon={loadingLoop} width="24" /> : "Login"}
@@ -149,7 +151,7 @@ function LoginForm() {
 
                     <ToastContainer />
                     <div>
-                        <p>Don't have an account? <Link to="/signup" style={styles.footer}>Sign up</Link></p>
+                        <p>Don't have an account? <Link to="/signup" className={style.footer}>Sign up</Link></p>
                     </div>
                 </div>
             </div>
@@ -157,79 +159,8 @@ function LoginForm() {
     );
 }
 
-const styles = {
-    container: {
-        display: 'flex',
-        flexDirection: 'row',
-        height: '100vh',
-        // '@media(min-width: 768px)': {
-        //     flexDirection: 'row',
-        // },
-    },
-    imageContainer: {
-        flex: 1,
-        backgroundColor: '#f0f0f0',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: '20px',
-    },
-    image: {
-        maxWidth: '100%',
-        maxHeight: '80%',
-        borderRadius: '8px',
-    },
-    formContainer: {
-        flex: 1,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: '20px',
-    },
-    header: {
-        fontFamily: 'Roboto, sans-serif',
-        fontSize: '20px',
-        textAlign: 'center',
-        marginBottom: '20px',
-    },
-    inputContainer: {
-        marginBottom: '10px',
-    },
-    input: {
-        width: '100%',
-        maxWidth: '300px',
-        padding: '15px 20px',
-        borderRadius: '10px',
-        fontSize: '15px',
-    },
-    errorMessage: {
-        color: 'red',
-        fontSize: '12px',
-    },
-    button: {
-        backgroundColor: '#55229e',
-        color: '#ffffff',
-        padding: '10px 20px',
-        fontSize: '16px',
-        width: '100%',
-        maxWidth: '300px',
-        borderRadius: '5px',
-        border: 'none',
-        cursor: 'pointer',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    footer: {
-        textAlign: 'center',
-        marginTop: '20px',
-        marginLeft: '90px',
-    },
-    link: {
-        color: '#55229e',
-        marginLeft: '5px',
-    }
-};
+
+
 
 
 

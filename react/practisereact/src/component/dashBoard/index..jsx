@@ -52,7 +52,7 @@
 //     return (
 //         <div style={styles.container}>
 //             <div style={styles.imageContainer}>
-//                 <img src="/img/webpix.png" alt="quiz image" style={styles.image} />
+//                 <img src="/img/webPix.png" alt="quiz image" style={styles.image} />
 //             </div>
 //             <div style={styles.formContainer}>
 //                 <div>

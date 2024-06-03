@@ -3,6 +3,7 @@ export const Styles = {
         display: 'flex',
         flexDirection: 'row',
         height: '100vh',
+        background: "#a76ae4"
     },
     imageContainer: {
         flex: 1,
@@ -59,14 +60,16 @@ export const Styles = {
         cursor: 'pointer',
         display: 'flex',
         justifyContent: 'center',
-        alignItems: 'center',
+        alignItems: 'center'
     },
     questionsList: {
         listStyleType: 'none',
         padding: 0,
+
     },
     questionItem: {
         marginBottom: '20px',
+
     },
     pagination: {
         display: 'flex',
@@ -94,5 +97,20 @@ export const Styles = {
     link: {
         color: '#55229e',
         marginLeft: '5px',
-    }
+    },
+    '@media and screen(min-width: 796px) ': {
+        container: {
+            flexDirection: 'row',
+        },
+        imageContainer: {
+            flex: 1,
+            marginBottom: 0,
+        },
+        formContainer: {
+            flex: 1,
+            maxWidth: 'none',
+            margin: 0,
+        },
+    },
+
 };

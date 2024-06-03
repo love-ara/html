@@ -50,6 +50,7 @@ const Footer = () => {
                             <input placeholder="Your email address" className={style.input}/>
                             <img src={send} className={style.image} alt="image"/>
                         </label>
+
                     </div>
                 </div>
             </div>
